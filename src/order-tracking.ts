@@ -98,11 +98,11 @@ export class OrderTracking {
     faslet.onload = () => {
       window._faslet_orders?.configure();
       this.products.forEach((product) => {
-        window._faslet_orders?.event(
-          'widget_order_track',
-          this.shopId,
-          product
-        );
+        window._faslet_orders?.event('widget_order_track', this.shopId, {
+          ...product,
+          order: this.orderNumber,
+          payment_status: this.paymentStatus
+        });
       });
     };
   }
