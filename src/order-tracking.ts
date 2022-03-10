@@ -9,7 +9,7 @@ export interface Product {
 }
 
 export class OrderTracking {
-  private shopId: string;
+  private readonly shopId: string;
 
   private products: Product[] = [];
 

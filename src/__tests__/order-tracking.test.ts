@@ -1,21 +1,6 @@
 import { createOrderTracking } from '..';
 
 describe('Order tracking', () => {
-  it('generates a valid script tag', () => {
-    const orderTracking = createOrderTracking('Faslet Demo');
-    orderTracking.withOrderNumber('order-1').withPaymentStatus('paid');
-
-    const scriptTag = document.querySelector(
-      'script#faslet-order-tracking-tag'
-    ) as HTMLScriptElement;
-
-    expect(scriptTag.src).toBe(
-      'https://widget.prod.faslet.net/faslet-orders.js'
-    );
-
-    expect(scriptTag.defer).toBeTruthy();
-  });
-
   it('generates a valid order tracking tag', () => {
     const orderTracking = createOrderTracking('Faslet Demo');
     orderTracking.withOrderNumber('order-1').withPaymentStatus('paid');
