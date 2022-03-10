@@ -109,9 +109,14 @@ export class Widget {
 
     const faslet = document.createElement('script');
     faslet.type = 'text/javascript';
+    faslet.id = 'faslet-script-tag';
     faslet.src = 'https://widget.prod.faslet.net/faslet-app.min.js';
     faslet.defer = true;
-    root.parentNode.insertBefore(faslet, root);
+    if (root) {
+      root.parentNode.insertBefore(faslet, root);
+    } else {
+      document.head.appendChild(faslet);
+    }
   }
 
   addToDom(parentCssSelector: string) {
@@ -145,7 +150,7 @@ export class Widget {
       );
     }
 
-    if (!this.variants) {
+    if (!this.variants || !this.variants.length) {
       throw new Error(
         'Variants are empty, please call addVariant on your Widget instance'
       );

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order tracking generates a valid order tracking tag 1`] = `
+<head>
+  <script
+    id="faslet-order-tracking-tag"
+    src="https://widget.prod.faslet.net/faslet-orders.js"
+    type="text/javascript"
+  />
+  <script
+    defer=""
+    id="faslet-gtm-tag"
+    src="https://www.googletagmanager.com/gtag/js?id=G-6J8TML143D"
+    type="text/javascript"
+  />
+</head>
+`;

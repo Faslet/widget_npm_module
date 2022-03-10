@@ -65,7 +65,7 @@ export class OrderTracking {
       );
     }
 
-    if (!this.products) {
+    if (!this.products || !this.products.length) {
       throw new Error(
         'Products are empty, please call addProduct on your OrderTracking instance'
       );
@@ -76,14 +76,24 @@ export class OrderTracking {
 
     const faslet = document.createElement('script');
     faslet.type = 'text/javascript';
+    faslet.id = 'faslet-order-tracking-tag';
     faslet.src = 'https://widget.prod.faslet.net/faslet-orders.js';
-    root.parentNode.insertBefore(faslet, root);
+    if (root) {
+      root.parentNode.insertBefore(faslet, root);
+    } else {
+      document.head.appendChild(faslet);
+    }
 
     const gtm = document.createElement('script');
     gtm.type = 'text/javascript';
+    gtm.id = 'faslet-gtm-tag';
     gtm.src = 'https://www.googletagmanager.com/gtag/js?id=G-6J8TML143D';
     gtm.defer = true;
-    root.parentNode.insertBefore(gtm, root);
+    if (root) {
+      root.parentNode.insertBefore(gtm, root);
+    } else {
+      document.head.appendChild(gtm);
+    }
 
     faslet.onload = () => {
       window._faslet_orders?.configure();

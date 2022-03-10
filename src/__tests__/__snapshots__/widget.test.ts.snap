@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Widget generates a valid widget tag 1`] = `
+<div
+  id="faslet-test-container"
+>
+  <faslet-app
+    brand="Faslet Demo Brand"
+    categories="Faslet_Jacket_Male"
+    id="faslet-web-component"
+    platform="unknown"
+    product-img="https://placekitten.com/100"
+    product-name="Jacket"
+    shop-id="Faslet Demo"
+  />
+</div>
+`;
