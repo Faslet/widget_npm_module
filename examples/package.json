@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "The Faslet Team",
   "scripts": {
-    "dev": "rollup --config ./rollup.config.js --watch",
+    "start": "rollup --config ./rollup.config.js --watch",
     "build": "rollup --config ./rollup.config.js"
   },
   "license": "ISC",
