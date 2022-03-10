@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Faslet Demo</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <header>
+            Faslet Fashion Store
+        </header>
+        <main>
+            <h2>Faslet Jacket</h2>
+            <p>The best jacket in this store</p>
+            <div class="row">
+            <div class="images column">
+                <img class="main-image" src="https://placekitten.com/400/500">
+                <div class="row">
+                    <div class="spacer"></div>
+                    <img class="small-image" src="https://placekitten.com/100/120?1">
+                    <img class="small-image" src="https://placekitten.com/100/120?2">
+                    <img class="small-image" src="https://placekitten.com/100/120?3">
+                    <div class="spacer"></div>
+                </div>
+            </div>
+            <div class="gap"></div>
+            <div class="column">
+                <p>Some text about this great jacket. This is definitely the best jacket in this store!</p>
+                <div class="gap"></div>
+                <div class="row">
+                    <p class="label">Size: </p>
+                    <div class="gap"></div>
+                    <select class="flex-auto">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                </div>
+                <div class="gap"></div>
+                <div class="row">
+                    <p class="label">Color: </p>
+                    <div class="gap"></div>
+                    <select class="flex-auto">
+                        <option>Magnificent Red</option>
+                        <option>Dashing Blue</option>
+                    </select>
+                </div>
+                <div class="gap"></div>
+                <div class="row">
+                    <div class="flex-auto row">
+                        <p class="vertical-center">Qty</p>
+                        <div class="gap"></div>
+                        <input type="number" value="1"></input>
+                    </div>
+                    <div id="faslet-container" class="flex-auto"></div>
+                </div>
+                <div class="gap"></div>
+                <button class="add-to-cart">Dummy Add to Cart</button>
+            </div>
+            </div>
+        </main>
+
+        <script src="../build/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "@faslet/widget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --watch --watchAll",
+    "test-ci": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "4.6.2",
+    "jest": "27.5.1",
+    "ts-jest": "27.1.3",
+    "eslint": "8.10.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.29.3",
+    "prettier": "2.5.1",
+    "@typescript-eslint/eslint-plugin": "5.14.0",
+    "@typescript-eslint/parser": "5.14.0"
+  }
+}
