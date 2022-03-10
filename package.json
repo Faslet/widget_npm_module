@@ -4,7 +4,7 @@
   "description": "The Faslet Size Me Up widget for eCommerce platforms",
   "author": "The Faslet Team",
   "main": "build/src/index.js",
-  "types": "build/index.d.ts",
+  "types": "build/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Faslet/widget_npm_module"
