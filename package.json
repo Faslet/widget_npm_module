@@ -23,8 +23,6 @@
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "typescript": "4.6.2",

@@ -1,13 +1,13 @@
 {
   "name": "examples",
   "version": "1.0.0",
-  "description": "",
+  "description": "Examples for integrating the Faslet widget",
   "main": "index.js",
+  "author": "The Faslet Team",
   "scripts": {
     "dev": "rollup --config ./rollup.config.js --watch",
     "build": "rollup --config ./rollup.config.js"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@faslet/widget": "file:../"
