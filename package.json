@@ -5,8 +5,7 @@
   "main": "build/src/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest --watch --watchAll",
-    "test-ci": "jest"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

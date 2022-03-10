@@ -7,7 +7,7 @@ function myAddToCartFunction(variantId: string) {
 
 const widget = createWidget('Faslet Demo')
   .withBrand('Faslet Demo')
-  .withProductId('id123')
+  .withProductId('product-1')
   .withProductImage('https://placekitten.com/100')
   .withProductName('Jacket')
   .withFasletProductTag('Faslet_Jacket_Male')
@@ -16,12 +16,12 @@ const widget = createWidget('Faslet Demo')
 widget.addColor('red', 'Magnificent Red').addColor('blue', 'Dashing Blue');
 
 widget
-  .addVariant('var_1', 'S', true, 'sku_1', 'red')
-  .addVariant('var_2', 'S', true, 'sku_2', 'blue')
-  .addVariant('var_3', 'M', true, 'sku_3', 'red')
-  .addVariant('var_4', 'M', false, 'sku_4', 'blue')
-  .addVariant('var_5', 'L', false, 'sku_5', 'red')
-  .addVariant('var_6', 'L', false, 'sku_6', 'blue');
+  .addVariant('variant-1', 'S', true, 'sku-1', 'red')
+  .addVariant('variant-2', 'S', true, 'sku-2', 'blue')
+  .addVariant('variant-3', 'M', true, 'sku-3', 'red')
+  .addVariant('variant-4', 'M', false, 'sku-4', 'blue')
+  .addVariant('variant-5', 'L', false, 'sku-5', 'red')
+  .addVariant('variant-6', 'L', false, 'sku-6', 'blue');
 
 widget.injectScriptTag();
 
