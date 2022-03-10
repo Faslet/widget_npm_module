@@ -16,6 +16,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+# TODO:      - run: npm run test
       - run: npm run build
       - run: echo "TAG=$(echo ${GITHUB_REF#refs/*/})" >> $GITHUB_ENV
       - run: npm version $TAG --no-git-tag-version
