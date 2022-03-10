@@ -1,15 +1,27 @@
 {
   "name": "@faslet/widget",
   "version": "0.0.1",
-  "description": "",
+  "description": "The Faslet Size Me Up widget for eCommerce platforms",
+  "author": "The Faslet Team",
   "main": "build/src/index.js",
+  "types": "build/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Faslet/widget_npm_module"
+  },
+  "keywords": [
+    "eCommerce",
+    "sizing",
+    "returns",
+    "fashion"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "4.6.2",
     "jest": "27.5.1",
