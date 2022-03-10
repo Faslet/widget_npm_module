@@ -6,7 +6,7 @@ function myAddToCartFunction(variantId: string) {
 }
 
 const widget = createWidget('Faslet Demo')
-  .withBrand('Faslet Demo')
+  .withBrand('Faslet Demo Brand')
   .withProductId('product-1')
   .withProductImage('https://placekitten.com/100')
   .withProductName('Jacket')
