@@ -18,19 +18,20 @@ const widget = createWidget('Faslet Demo')
     .withProductImage('https://placekitten.com/100')
     .withProductName('Jacket')
     .withFasletProductTag('Faslet_Jacket_Male')
-    .withAddToCart(myAddToCartFunction);
+    .withAddToCart(myAddToCartFunction)
+    .withOnResult(myResultFunction);
 
 widget
     .addColor('red', 'Magnificent Red')
     .addColor('blue', 'Dashing Blue');
 
 widget
-    .addVariant('variant-1', 'S', true, 'sku-1', 'red')
-    .addVariant('variant-2', 'S', true, 'sku-2', 'blue')
-    .addVariant('variant-3', 'M', true, 'sku-3', 'red')
-    .addVariant('variant-4', 'M', false, 'sku-4', 'blue')
-    .addVariant('variant-5', 'L', false, 'sku-5', 'red')
-    .addVariant('variant-6', 'L', false, 'sku-6', 'blue');
+    .addVariant('variant-1', 'S', true, 'sku-1', 'red', '59.99', 'https://placekitten.com/300/500')
+    .addVariant('variant-2', 'S', true, 'sku-2', 'blue', '59.99', 'https://placekitten.com/300/500')
+    .addVariant('variant-3', 'M', true, 'sku-3', 'red', '59.99', 'https://placekitten.com/300/500')
+    .addVariant('variant-4', 'M', false, 'sku-4', 'blue', '59.99', 'https://placekitten.com/300/500')
+    .addVariant('variant-5', 'L', false, 'sku-5', 'red', '54.99', 'https://placekitten.com/300/500')
+    .addVariant('variant-6', 'L', false, 'sku-6', 'blue', '54.99', 'https://placekitten.com/300/500');
 
 widget.injectScriptTag();
 
