@@ -27,12 +27,60 @@ describe('Widget', () => {
     widget.addColor('red', 'Magnificent Red').addColor('blue', 'Dashing Blue');
 
     widget
-      .addVariant('variant-1', 'S', true, 'sku-1', 'red')
-      .addVariant('variant-2', 'S', true, 'sku-2', 'blue')
-      .addVariant('variant-3', 'M', true, 'sku-3', 'red')
-      .addVariant('variant-4', 'M', false, 'sku-4', 'blue')
-      .addVariant('variant-5', 'L', false, 'sku-5', 'red')
-      .addVariant('variant-6', 'L', false, 'sku-6', 'blue');
+      .addVariant(
+        'variant-1',
+        'S',
+        true,
+        'sku-1',
+        'red',
+        '11.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-2',
+        'S',
+        true,
+        'sku-2',
+        'blue',
+        '12.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-3',
+        'M',
+        true,
+        'sku-3',
+        'red',
+        '13.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-4',
+        'M',
+        false,
+        'sku-4',
+        'blue',
+        '14.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-5',
+        'L',
+        false,
+        'sku-5',
+        'red',
+        '15.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-6',
+        'L',
+        false,
+        'sku-6',
+        'blue',
+        '16.99',
+        'https://placekitten.com/100/100'
+      );
 
     widget.injectScriptTag();
 
@@ -59,12 +107,60 @@ describe('Widget', () => {
     widget.addColor('red', 'Magnificent Red').addColor('blue', 'Dashing Blue');
 
     widget
-      .addVariant('variant-1', 'S', true, 'sku-1', 'red')
-      .addVariant('variant-2', 'S', true, 'sku-2', 'blue')
-      .addVariant('variant-3', 'M', true, 'sku-3', 'red')
-      .addVariant('variant-4', 'M', false, 'sku-4', 'blue')
-      .addVariant('variant-5', 'L', false, 'sku-5', 'red')
-      .addVariant('variant-6', 'L', false, 'sku-6', 'blue');
+      .addVariant(
+        'variant-1',
+        'S',
+        true,
+        'sku-1',
+        'red',
+        '11.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-2',
+        'S',
+        true,
+        'sku-2',
+        'blue',
+        '12.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-3',
+        'M',
+        true,
+        'sku-3',
+        'red',
+        '13.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-4',
+        'M',
+        false,
+        'sku-4',
+        'blue',
+        '14.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-5',
+        'L',
+        false,
+        'sku-5',
+        'red',
+        '15.99',
+        'https://placekitten.com/100/100'
+      )
+      .addVariant(
+        'variant-6',
+        'L',
+        false,
+        'sku-6',
+        'blue',
+        '16.99',
+        'https://placekitten.com/100/100'
+      );
 
     widget.injectScriptTag();
 

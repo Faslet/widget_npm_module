@@ -9,6 +9,8 @@ export interface Variant {
   sku: string;
   available: boolean;
   color: string;
+  price?: string;
+  imageUrl?: string;
 }
 
 export class Widget {
@@ -35,6 +37,15 @@ export class Widget {
   private variants: Variant[] = [];
 
   private addToCart: (variantId: string) => Promise<unknown>;
+
+  private onResult: (
+    { label }: { label: string },
+    resultType: 'auto' | 'result-screen'
+  ) => unknown;
+
+  private onButtonShow: () => unknown;
+
+  private onButtonHidden: () => unknown;
 
   constructor(shopId: string) {
     this.shopId = shopId;
@@ -80,6 +91,37 @@ export class Widget {
     return this;
   }
 
+  withOnResult(
+    onResult: (
+      { label }: { label: string },
+      resultType: 'auto' | 'result-screen'
+    ) => unknown
+  ) {
+    this.onResult = onResult;
+    return this;
+  }
+
+  withOnButtonShow(onButtonShow: () => unknown) {
+    this.onButtonShow = onButtonShow;
+    return this;
+  }
+
+  withOnButtonHidden(onButtonHidden: () => unknown) {
+    this.onButtonHidden = onButtonHidden;
+    return this;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  openWidget() {
+    if (!window._faslet?.openWidget) {
+      console.error(
+        'Attempted to open Faslet widget before it was added to the DOM'
+      );
+      return;
+    }
+    window._faslet.openWidget();
+  }
+
   addColor(id: string, name: string) {
     this.colors.push({ id, name });
     return this;
@@ -90,14 +132,18 @@ export class Widget {
     sizeLabel: string,
     inStock: boolean,
     sku: string,
-    colorId: string
+    colorId: string,
+    price?: string,
+    imageUrl?: string
   ) {
     this.variants.push({
       size: sizeLabel,
       sku,
       id: variantId,
       available: inStock,
-      color: colorId
+      color: colorId,
+      price,
+      imageUrl
     });
     return this;
   }
@@ -170,7 +216,10 @@ export class Widget {
       variants: this.variants,
       colors: this.colors,
       shopUrl: this.shopPageUrl,
-      addToCart: this.addToCart
+      addToCart: this.addToCart,
+      onButtonHidden: this.onButtonHidden,
+      onButtonShow: this.onButtonShow,
+      onResult: this.onResult
     };
 
     const widget = document.createElement('faslet-app', { is: 'faslet-app' });
