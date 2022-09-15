@@ -33,7 +33,7 @@ describe('Widget', () => {
         true,
         'sku-1',
         'red',
-        '11.99',
+        11.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -42,7 +42,7 @@ describe('Widget', () => {
         true,
         'sku-2',
         'blue',
-        '12.99',
+        12.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -51,7 +51,7 @@ describe('Widget', () => {
         true,
         'sku-3',
         'red',
-        '13.99',
+        13.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -60,7 +60,7 @@ describe('Widget', () => {
         false,
         'sku-4',
         'blue',
-        '14.99',
+        14.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -69,7 +69,7 @@ describe('Widget', () => {
         false,
         'sku-5',
         'red',
-        '15.99',
+        15.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -78,7 +78,7 @@ describe('Widget', () => {
         false,
         'sku-6',
         'blue',
-        '16.99',
+        16.99,
         'https://placekitten.com/100/100'
       );
 
@@ -113,7 +113,7 @@ describe('Widget', () => {
         true,
         'sku-1',
         'red',
-        '11.99',
+        11.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -122,7 +122,7 @@ describe('Widget', () => {
         true,
         'sku-2',
         'blue',
-        '12.99',
+        12.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -131,7 +131,7 @@ describe('Widget', () => {
         true,
         'sku-3',
         'red',
-        '13.99',
+        13.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -140,7 +140,7 @@ describe('Widget', () => {
         false,
         'sku-4',
         'blue',
-        '14.99',
+        14.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -149,7 +149,7 @@ describe('Widget', () => {
         false,
         'sku-5',
         'red',
-        '15.99',
+        15.99,
         'https://placekitten.com/100/100'
       )
       .addVariant(
@@ -158,7 +158,7 @@ describe('Widget', () => {
         false,
         'sku-6',
         'blue',
-        '16.99',
+        16.99,
         'https://placekitten.com/100/100'
       );
 

@@ -27,7 +27,7 @@ widget
     true,
     'sku-1',
     'red',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   )
   .addVariant(
@@ -36,7 +36,7 @@ widget
     true,
     'sku-2',
     'blue',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   )
   .addVariant(
@@ -45,7 +45,7 @@ widget
     true,
     'sku-3',
     'red',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   )
   .addVariant(
@@ -54,7 +54,7 @@ widget
     false,
     'sku-4',
     'blue',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   )
   .addVariant(
@@ -63,7 +63,7 @@ widget
     false,
     'sku-5',
     'red',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   )
   .addVariant(
@@ -72,7 +72,7 @@ widget
     false,
     'sku-6',
     'blue',
-    '11.99',
+    11.99,
     'https://placekitten.com/300/500'
   );
 

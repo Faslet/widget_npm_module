@@ -19,6 +19,8 @@ interface Window {
       id: string;
       available: boolean;
       sku: string;
+      price?: number;
+      imageUrl?: string;
     }[];
     colors?: {
       id: string;

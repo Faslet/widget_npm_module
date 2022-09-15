@@ -9,7 +9,7 @@ export interface Variant {
   sku: string;
   available: boolean;
   color: string;
-  price?: string;
+  price?: number;
   imageUrl?: string;
 }
 
@@ -133,7 +133,7 @@ export class Widget {
     inStock: boolean,
     sku: string,
     colorId: string,
-    price?: string,
+    price?: number,
     imageUrl?: string
   ) {
     this.variants.push({
