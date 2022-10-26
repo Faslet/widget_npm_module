@@ -14,7 +14,6 @@ const widget = createWidget('Faslet Demo')
   .withProductId('product-1')
   .withProductImage('https://placekitten.com/100')
   .withProductName('Jacket')
-  .withFasletProductTag('Faslet_Jacket_Male')
   .withAddToCart(myAddToCartFunction)
   .withOnResult(onWidgetResult);
 
