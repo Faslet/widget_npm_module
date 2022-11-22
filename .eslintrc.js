@@ -74,6 +74,8 @@ module.exports = {
     'no-plusplus': 'off',
 
     'jsx-a11y/tabindex-no-positive': 'off',
+
+    'class-methods-use-this': 'off',
     /**
      * @description rules of eslint-plugin-prettier
      */

@@ -47,35 +47,64 @@ export class Widget {
 
   private onButtonHidden: () => unknown;
 
+  /**
+   * Constructor
+   * @param shopId - your unique Faslet Shop ID. This can be obtained in the Faslet Partner Portal
+   */
   constructor(shopId: string) {
     this.shopId = shopId;
   }
 
+  /**
+   * Set the brand for this product
+   * @param productBrand - the name of the brand
+   */
   withBrand(productBrand: string) {
     this.productBrand = productBrand;
     return this;
   }
 
+  /**
+   * Set the name of this product
+   * @param productName - the name of this product
+   */
   withProductName(productName: string) {
     this.productName = productName;
     return this;
   }
 
+  /**
+   * Set the image for this product
+   * @param productImageUrl - the url of the image for this product
+   */
   withProductImage(productImageUrl: string) {
     this.productImageUrl = productImageUrl;
     return this;
   }
 
+  /**
+   * Set the Product Identifier. This is required and used by Faslet to correlate products through orders and returns. Note that this should not be a variant identifier
+   * @param productIdentifier - the product identifier.
+   */
   withProductId(productIdentifier: string) {
     this.productIdentifier = productIdentifier;
     return this;
   }
 
+  /**
+   * Set the Product Tag. This was previously used before Product Identifiers to handle sizing. This is no longer required.
+   * @deprecated
+   * @param productTag - the product tag.
+   */
   withFasletProductTag(productTag: string) {
     this.productTag = productTag;
     return this;
   }
 
+  /**
+   * Set the locale.
+   * @param locale - a 2 character iso language code.
+   */
   withLocale(locale: string) {
     this.locale = locale;
     return this;
@@ -111,8 +140,7 @@ export class Widget {
     return this;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  openWidget() {
+  openWidget(): void {
     if (!window._faslet?.openWidget) {
       console.error(
         'Attempted to open Faslet widget before it was added to the DOM'
