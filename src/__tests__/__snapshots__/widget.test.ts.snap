@@ -15,25 +15,3 @@ exports[`Widget generates a valid widget tag 1`] = `
   />
 </div>
 `;
-
-exports[`Widget removes the widget from the dom 1`] = `
-<div
-  id="faslet-test-container"
->
-  <faslet-app
-    brand="Faslet Demo Brand"
-    categories="Faslet_Jacket_Male"
-    id="faslet-web-component"
-    platform="unknown"
-    product-img="https://placekitten.com/100"
-    product-name="Jacket"
-    shop-id="Faslet Demo"
-  />
-</div>
-`;
-
-exports[`Widget removes the widget from the dom 2`] = `
-<div
-  id="faslet-test-container"
-/>
-`;
