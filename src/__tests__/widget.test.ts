@@ -189,4 +189,47 @@ describe('Widget', () => {
 
     expect(() => widget.addToDom('#faslet-test-container')).toThrow();
   });
+
+  it('removes the widget from the dom', async () => {
+    const widget = createWidget('Faslet Demo')
+      .withBrand('Faslet Demo Brand')
+      .withProductId('product-1')
+      .withProductImage('https://placekitten.com/100')
+      .withProductName('Jacket')
+      .withFasletProductTag('Faslet_Jacket_Male');
+
+    widget
+      .addVariant('variant-1', 'S', true, 'sku-1', undefined, 11.99)
+      .addVariant('variant-2', 'M', true, 'sku-2', undefined, 11.99);
+
+    widget.injectScriptTag();
+
+    const container = document.createElement('div');
+    container.id = 'faslet-test-container';
+    document.body.appendChild(container);
+
+    widget.addToDom('#faslet-test-container');
+
+    const widgetDom = document.querySelector('#faslet-web-component');
+
+    const remove = jest.spyOn(widgetDom, 'remove');
+
+    expect(widgetDom).not.toBeNull();
+
+    widget.removeFromDom();
+
+    expect(remove).toHaveBeenCalled();
+  });
+
+  it('ignores requests to add the script multiple times', () => {
+    const widget = createWidget('Faslet Demo');
+
+    widget.injectScriptTag();
+
+    expect(document.querySelectorAll('script').length).toBe(1);
+
+    widget.injectScriptTag();
+
+    expect(document.querySelectorAll('script').length).toBe(1);
+  });
 });

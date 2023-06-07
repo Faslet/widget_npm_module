@@ -181,6 +181,14 @@ export class Widget {
     const root =
       document.getElementsByTagName('script')[0] ?? document.head.lastChild;
 
+    const existing = document.querySelector('#faslet-script-tag');
+    if (existing) {
+      console.log(
+        'Faslet script tag already exists, ignoring request to add again'
+      );
+      return;
+    }
+
     const faslet = document.createElement('script');
     faslet.type = 'text/javascript';
     faslet.id = 'faslet-script-tag';
@@ -190,6 +198,13 @@ export class Widget {
       root.parentNode.insertBefore(faslet, root);
     } else {
       document.head.appendChild(faslet);
+    }
+  }
+
+  removeFromDom() {
+    const webComponent = document.querySelector('#faslet-web-component');
+    if (webComponent) {
+      webComponent.remove();
     }
   }
 
