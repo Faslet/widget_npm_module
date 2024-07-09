@@ -14,7 +14,7 @@ export interface Variant {
 }
 
 export class Widget {
-  private platform = 'unknown';
+  private platform = "unknown";
 
   private productBrand: string;
 
@@ -38,9 +38,11 @@ export class Widget {
 
   private addToCart: (variantId: string) => Promise<unknown>;
 
+  private disableProductRecs = false;
+
   private onResult: (
     { label }: { label: string },
-    resultType: 'auto' | 'result-screen'
+    resultType: "auto" | "result-screen"
   ) => unknown;
 
   private onButtonShow: () => unknown;
@@ -110,6 +112,14 @@ export class Widget {
     return this;
   }
 
+  /**
+   * Disable Product Recommendations explicitly. Useful for App development.
+   */
+  disableProductRecommendations() {
+    this.disableProductRecs = true;
+    return this;
+  }
+
   withUrl(shopPageUrl: string) {
     this.shopPageUrl = shopPageUrl;
     return this;
@@ -123,7 +133,7 @@ export class Widget {
   withOnResult(
     onResult: (
       { label }: { label: string },
-      resultType: 'auto' | 'result-screen'
+      resultType: "auto" | "result-screen"
     ) => unknown
   ) {
     this.onResult = onResult;
@@ -143,7 +153,7 @@ export class Widget {
   openWidget(): void {
     if (!window._faslet?.openWidget) {
       console.error(
-        'Attempted to open Faslet widget before it was added to the DOM'
+        "Attempted to open Faslet widget before it was added to the DOM"
       );
       return;
     }
@@ -171,28 +181,30 @@ export class Widget {
       available: inStock,
       color: colorId,
       price,
-      imageUrl
+      imageUrl,
     });
     return this;
   }
 
-  // eslint-disable-next-line class-methods-use-this
+  /**
+   * Inject the Faslet script tag into the DOM
+   */
   injectScriptTag() {
     const root =
-      document.getElementsByTagName('script')[0] ?? document.head.lastChild;
+      document.getElementsByTagName("script")[0] ?? document.head.lastChild;
 
-    const existing = document.querySelector('#faslet-script-tag');
+    const existing = document.querySelector("#faslet-script-tag");
     if (existing) {
       console.log(
-        'Faslet script tag already exists, ignoring request to add again'
+        "Faslet script tag already exists, ignoring request to add again"
       );
       return;
     }
 
-    const faslet = document.createElement('script');
-    faslet.type = 'text/javascript';
-    faslet.id = 'faslet-script-tag';
-    faslet.src = 'https://widget.prod.faslet.net/faslet-app.min.js';
+    const faslet = document.createElement("script");
+    faslet.type = "text/javascript";
+    faslet.id = "faslet-script-tag";
+    faslet.src = "https://widget.prod.faslet.net/faslet-app.min.js";
     faslet.defer = true;
     if (root) {
       root.parentNode.insertBefore(faslet, root);
@@ -201,47 +213,54 @@ export class Widget {
     }
   }
 
+  /**
+   * Remove the faslet-app tag from the DOM
+   */
   removeFromDom() {
-    const webComponent = document.querySelector('#faslet-web-component');
+    const webComponent = document.querySelector("#faslet-web-component");
     if (webComponent) {
       webComponent.remove();
     }
   }
 
+  /**
+   * Add the faslet-app tag to the DOM
+   * @param parentCssSelector - the css selector of the parent element to add the widget to
+   */
   addToDom(parentCssSelector: string) {
     if (!this.shopId) {
       throw new Error(
-        'Shop ID is missing, please construct your Widget instance with your Faslet Shop ID which you can obtain from Faslet'
+        "Shop ID is missing, please construct your Widget instance with your Faslet Shop ID which you can obtain from Faslet"
       );
     }
 
     if (!this.productBrand) {
       throw new Error(
-        'Brand is missing, please call withBrand on your Widget instance'
+        "Brand is missing, please call withBrand on your Widget instance"
       );
     }
 
     if (!this.productIdentifier) {
       throw new Error(
-        'Product Identifier is missing, please call withProductId on your Widget instance'
+        "Product Identifier is missing, please call withProductId on your Widget instance"
       );
     }
 
     if (!this.productName) {
       throw new Error(
-        'Product Name is missing, please call withProductName on your Widget instance'
+        "Product Name is missing, please call withProductName on your Widget instance"
       );
     }
 
     if (!this.productImageUrl) {
       throw new Error(
-        'Product Image Url is missing, please call withProductImage on your Widget instance'
+        "Product Image Url is missing, please call withProductImage on your Widget instance"
       );
     }
 
     if (!this.variants || !this.variants.length) {
       throw new Error(
-        'Variants are empty, please call addVariant on your Widget instance'
+        "Variants are empty, please call addVariant on your Widget instance"
       );
     }
 
@@ -262,18 +281,20 @@ export class Widget {
       addToCart: this.addToCart,
       onButtonHidden: this.onButtonHidden,
       onButtonShow: this.onButtonShow,
-      onResult: this.onResult
+      onResult: this.onResult,
     };
 
-    const widget = document.createElement('faslet-app', { is: 'faslet-app' });
-    widget.id = 'faslet-web-component';
-    widget.setAttribute('platform', this.platform);
-    widget.setAttribute('product-name', this.productName);
-    widget.setAttribute('shop-id', this.shopId);
-    widget.setAttribute('brand', this.productBrand);
-    if (this.productTag) widget.setAttribute('categories', this.productTag);
-    widget.setAttribute('product-img', this.productImageUrl);
-    if (this.locale) widget.setAttribute('locale', this.locale);
+    const widget = document.createElement("faslet-app", { is: "faslet-app" });
+    widget.id = "faslet-web-component";
+    widget.setAttribute("platform", this.platform);
+    widget.setAttribute("product-name", this.productName);
+    widget.setAttribute("shop-id", this.shopId);
+    widget.setAttribute("brand", this.productBrand);
+    if (this.productTag) widget.setAttribute("categories", this.productTag);
+    widget.setAttribute("product-img", this.productImageUrl);
+    if (this.locale) widget.setAttribute("locale", this.locale);
+    if (this.disableProductRecs)
+      widget.setAttribute("disable-product-recommendations", "true");
 
     parent.appendChild(widget);
   }
